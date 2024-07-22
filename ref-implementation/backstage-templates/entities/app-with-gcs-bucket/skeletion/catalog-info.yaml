@@ -1,0 +1,31 @@
+apiVersion: storage.gcp.upbound.io/v1beta1
+kind: Bucket
+metadata:
+  generateName: crossplane-bucket-
+  labels:
+    docs.crossplane.io/example: provider-gcp
+spec:
+  forProvider:
+    location: AU
+  providerConfigRef:
+    name: default
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{values.name | dump}}
+  description: This is for testing purposes
+  annotations:
+    backstage.io/kubernetes-label-selector: 'entity-id=${{values.name}}'
+    backstage.io/kubernetes-namespace: default
+    argocd/app-name: ${{values.name | dump}}
+  links:
+    - url: https://cnoe.localtest.me:8443/gitea
+      title: Repo URL
+      icon: github
+spec:
+  owner: guest
+  lifecycle: experimental
+  type: service
+  dependsOn:
+    - resource:default/${{values.name}}-bucket

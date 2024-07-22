@@ -4,7 +4,7 @@ metadata:
   name: default-gcp
   namespace: crossplane-system
 spec:
-  projectID: changeme
+  projectID: lab-testing-gcp
   credentials:
     source: Secret
     secretRef:
