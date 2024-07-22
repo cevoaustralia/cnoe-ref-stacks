@@ -1,0 +1,16 @@
+apiVersion: storage.azure.upbound.io/v1beta1
+kind: Account
+metadata:
+  name: cevoramos
+  namespace: crossplane-system
+spec:
+  deletionPolicy: Delete
+  forProvider:
+    accessTier: Hot
+    accountKind: StorageV2
+    accountReplicationType: LRS
+    accountTier: Standard
+    location: australiasoutheast
+    resourceGroupName: ramos
+  providerConfigRef:
+    name: default-azure

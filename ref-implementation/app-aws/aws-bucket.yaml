@@ -1,0 +1,10 @@
+apiVersion: s3.aws.crossplane.io/v1beta1
+kind: Bucket
+metadata:
+  name: aws-macq-cevo-ramos
+  namespace: crossplane-system
+spec:
+  forProvider:
+    locationConstraint: ap-southeast-2
+  providerConfigRef:
+    name: default-aws

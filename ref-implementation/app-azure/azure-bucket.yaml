@@ -1,0 +1,11 @@
+apiVersion: storage.azure.upbound.io/v1beta1
+kind: Container
+metadata:
+  name: azure-cevomacq
+  namespace: crossplane-system
+spec:
+  forProvider:
+    containerAccessType: blob
+    storageAccountName: cevoramos
+  providerConfigRef:
+    name: default-azure

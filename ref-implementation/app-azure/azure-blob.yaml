@@ -1,0 +1,13 @@
+apiVersion: storage.azure.upbound.io/v1beta1
+kind: Blob
+metadata:
+  name: bucket-cevo21
+  namespace: crossplane-system
+spec:
+  deletionPolicy: Delete
+  forProvider:
+    accessTier: Hot
+    storageContainerName: ramoscevo
+    type: block
+  providerConfigRef:
+    name: default-azure

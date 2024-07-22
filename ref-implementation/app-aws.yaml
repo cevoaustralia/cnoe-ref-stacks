@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-aws
+  namespace: argocd
+  labels:
+    env: dev
+spec:
+  project: default
+  source:
+    repoURL: cnoe://app-aws
+    targetRevision: HEAD
+    path: "."
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: aws
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      selfHeal: true
