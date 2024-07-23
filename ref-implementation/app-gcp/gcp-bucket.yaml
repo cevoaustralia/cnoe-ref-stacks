@@ -1,0 +1,10 @@
+apiVersion: storage.gcp.upbound.io/v1beta1
+kind: Bucket
+metadata:
+  name: macq-cevo-moleary-gcp
+  namespace: crossplane-system
+spec:
+  forProvider:
+    location: AUSTRALIA-SOUTHEAST1
+  providerConfigRef:
+    name: default-gcp

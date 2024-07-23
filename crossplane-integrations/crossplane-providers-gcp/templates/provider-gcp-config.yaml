@@ -1,14 +1,16 @@
-apiVersion: aws.crossplane.io/v1beta1
+apiVersion: gcp.upbound.io/v1beta1
 kind: ProviderConfig
 metadata:
-  name: default-aws
+  name: default-gcp
+  namespace: crossplane-system
   annotations:
     argocd.argoproj.io/sync-wave: "20"
     argocd.argoproj.io/sync-options: SkipDryRunOnMissingResource=true
 spec:
+  projectID: lab-testing-gcp
   credentials:
     source: Secret
     secretRef:
       namespace: crossplane-system
-      name: aws-credentials
+      name: gcp-credentials
       key: creds
